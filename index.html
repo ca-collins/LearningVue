@@ -7,14 +7,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
 </head>
-    <div id="app">
+    <div id="app1">
         <!-- v-on is a built-in Vue directive that is used for event listening. 
             The argument (after the colon) is the name of the event to listen 
             to. @click is an alternative here. The text aft the r = in the
-            quotes can be any JS you want to run when the event occurs. -->
-        <button v-on:click="changeTitle">Change Title</button>  
-        <p>{{ title }}</p>
+            quotes can be any JS you want to run when the event occurs.
+            including any methods / properties from the vue instance. -->
+        <div>
+            <h2>Practice #1</h2>
+            <p>Basics of data and methods property of Vue Object and event listeners</p>
+            <button v-on:click="changeTitle">Change Title</button>
+            <h3 style="display: inline-block; margin: 1rem;">{{ title }}</h3>
+        </div>
     </div>
+    <hr>
+    <div id="app2">
+        <div>
+            <h2>Practice #2</h2>
+            <p>Binding HTML Attributes</p>
+            <!-- Whenever any event is fired a default object passed to the
+                 event listener. The default object/data recieved (in the case 
+                 of input and other events) has a 'target' attribute (i.e.,
+                 the input element here). 
+                 
+                 '$event' gives us access to the 
+                 default object/data passed by the event to which you are 
+                 listening (the event object in this case). -->
+            <input placeholder="Type blue or red!" type="text" v-on:input="cssClass = $event.target.value">
+            <div style="display: flex; align-items: center;" v-bind:class="cssClass">
+                <h3  >Class: </h3>
+                <!-- v-bind is a directive that lets you dynamically bind html 
+                     attributes to the result of js code -->
+                <p style="margin-left: 10px;"></p>{{ cssClass }}</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+
 <body>
     
     <!-- Development Vue CDN -->
