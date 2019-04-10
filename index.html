@@ -8,6 +8,11 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
 </head>
     <div id="app">
+        <!-- v-on is a built-in Vue directive that is used for event listening. 
+            The argument (after the colon) is the name of the event to listen 
+            to. @click is an alternative here. The text aft the r = in the
+            quotes can be any JS you want to run when the event occurs. -->
+        <button v-on:click="changeTitle">Change Title</button>  
         <p>{{ title }}</p>
     </div>
 <body>
