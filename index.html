@@ -37,9 +37,43 @@
             <div style="display: flex; align-items: center;" v-bind:class="cssClass">
                 <h3  >Class: </h3>
                 <!-- v-bind is a directive that lets you dynamically bind html 
-                     attributes to the result of js code -->
-                <p style="margin-left: 10px;"></p>{{ cssClass }}</p>
+                     attributes (class in this case) to the result of js code.
+                     Note, you can use just ':class' as shorthand.  -->
+                <p style="margin-left: 10px;">{{ cssClass }}</p>
             </div>
+        </div>
+    </div>
+    <hr>
+    <div id="app3">
+        <div>
+            <h2>Practice #3</h2>
+            <p>Computed Properties</p>
+            <!-- a computed property is a goode idea to use when you have one property that dependes on another one -->
+            <button v-on:click="increment">Increment</button>
+            <div style="display: flex; align-items: center;">
+                <p style="margin-left: 10px;">Counter: {{ counter }}</p>
+                <p style="margin-left: 10px;">Clicks: {{ clicks }}</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div id="app4">
+        <div>
+            <h2>Practice #4</h2>
+            <p>Conditionals (v-if & v-show)</p>
+            <button v-on:click="show = !show">Show / Hide</button>
+            <div style="display: flex; align-items: center;">
+                <p style="margin-left: 10px;" v-if="show">I'm visible sometimes!</p> <!-- v-if is used to conditionally render a block. The block will only be rendered if the directive’s expression returns a truthy value -->
+                <p style="margin-left: 10px;" v-else>Am I visible?</p>  <!-- v-else can be placed on an adjacent element as long as it is the same type (e.g., <p></p>) -->
+                <p style="margin-left: 10px;" v-show="show">You can see me!</p>  <!-- v-show works like v-if except it changes display to none if truthy and does not completely remove the elem from the dom -->
+            </div>
+            <p>Lists</p>
+            <ul> <!-- v-for allows you to loop through an object/array to display multiple elements (in this case li's). person here can anything, persons refers to the object in the Vue el data -->
+                <li v-for="person in persons">{{ person.name }}</li>
+                <li> </li>
+                <!-- You can optionally add a second argument to get the index of each item (does not have to be the word index)-->
+                <li v-for="(person, index) in persons">{{ person.name }} - {{ index }}</li> 
+            </ul>
         </div>
     </div>
     <hr>

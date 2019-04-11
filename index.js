@@ -16,3 +16,32 @@ new Vue({
         cssClass: 'no class...'
     }
 });
+
+new Vue({
+    el: '#app3',  
+    data: {      
+        clicks: 0
+    },
+    methods: {  
+        increment() {
+            this.clicks++;
+        }
+    },
+    computed: {  // here set up all computed properties which is actually just a like writing a method. You access it on the html template in the same way as methods/data
+        counter() {
+            return this.clicks * 2;
+        }
+    }
+});
+
+new Vue({
+    el: '#app4',  
+    data: {      
+        show: true,
+        persons: [
+            {name: 'Max', age: 27},
+            {name: 'Chris', age: 30},
+            {name: 'Nora', age: 25}
+        ]
+    }
+});
