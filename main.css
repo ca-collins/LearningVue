@@ -12,3 +12,9 @@ hr {
 .topic {
     font-weight: bold;
 }
+
+.user {
+    border: 1px solid lightgray;
+    background-color: azure;
+    padding: 10px;
+}

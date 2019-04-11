@@ -18,7 +18,7 @@
             including any methods / properties from the vue instance. -->
         <div>
             <h2>Practice #1</h2>
-            <p>Basics of data and methods property of Vue Object and event listeners</p>
+            <p class="topic">Basics of data and methods property of Vue Object and event listeners</p>
             <button v-on:click="changeTitle">Change Title</button>
             <h3 style="display: inline-block; margin: 1rem;">{{ title }}</h3>
         </div>
@@ -29,7 +29,7 @@
     <div id="app2">
         <div>
             <h2>Practice #2</h2>
-            <p>Binding HTML Attributes</p>
+            <p class="topic">Binding HTML Attributes</p>
             <!-- Whenever any event is fired a default object passed to the
                  event listener. The default object/data recieved (in the case 
                  of input and other events) has a 'target' attribute (i.e.,
@@ -54,7 +54,7 @@
     <div id="app3">
         <div>
             <h2>Practice #3</h2>
-            <p>Computed Properties</p>
+            <p class="topic">Computed Properties</p>
             <!-- a computed property is a goode idea to use when you have one property that dependes on another one -->
             <button v-on:click="increment">Increment</button>
             <div style="display: flex; align-items: center;">
@@ -69,14 +69,14 @@
     <div id="app4">
         <div>
             <h2>Practice #4</h2>
-            <p>Conditionals (v-if & v-show)</p>
+            <p class="topic">Conditionals (v-if & v-show)</p>
             <button v-on:click="show = !show">Show / Hide</button>
             <div style="display: flex; align-items: center;">
                 <p style="margin-left: 10px;" v-if="show">I'm visible sometimes!</p> <!-- v-if is used to conditionally render a block. The block will only be rendered if the directive’s expression returns a truthy value -->
                 <p style="margin-left: 10px;" v-else>Am I visible?</p>  <!-- v-else can be placed on an adjacent element as long as it is the same type (e.g., <p></p>) -->
                 <p style="margin-left: 10px;" v-show="show">You can see me!</p>  <!-- v-show works like v-if except it changes display to none if truthy and does not completely remove the elem from the dom -->
             </div>
-            <p>Lists</p>
+            <p class="topic">Lists</p>
             <ul> <!-- v-for allows you to loop through an object/array to display multiple elements (in this case li's). person here can anything, persons refers to the object in the Vue el data -->
                 <li v-for="person in persons">{{ person.name }}</li>
                 <li> </li>
@@ -91,7 +91,7 @@
     <div id="app5">
         <div>
             <h2>Practice #5</h2>
-            <p>Filters</p>
+            <p class="topic">Filters</p>
             <div>
                 <p>Using Computed Property: {{ theTitle }}</p>
                 <p>Using a Global Filter: {{ title | uppercase }}</p>
@@ -111,20 +111,14 @@
             <p class="topic">Components</p>
             <div>
                 <p>{{ title }}</p>
-                <p>-------------</p>>
-                <div>
-                    <p>Username: {{ username }}</p>
-                </div>
+                <p>-------------</p>
+                <p>Using the gloably defined component:</p>
+                <app-user-global></app-user-global> <!-- the tag name matches the defined name of the gloabl component. Can be used anywhere. -->
+                <p>Using the locally defined component within this vue instance:</p>
+                <app-user-local></app-user-local> <!-- the tag name matches the defined name of the property within the components property of the vue instance. Can only be used in this vue instance. -->
             </div>
         </div>
     </div>
-
-    <hr>
-
-
-
-
-
 
     
     <!-- Development Vue CDN -->

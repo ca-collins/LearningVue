@@ -97,10 +97,49 @@ new Vue({
 // =========================
 // PRACTICE #6  -  COMPONENTS
 // =========================
+// this creates a global component usable in any view instance application-wide.
+// the first arg can be defined by you having a unique prefix and dash. This is a 
+// convention to ensure you are not selecting an existing html element (e.g., div, p, etc.).
+// The second arg is an object. This object is exactly like the object you pass in
+// a vue instance except the data property is no longer an object but a function
+// that returns an object.
+Vue.component('app-user-global', {
+    data: function() {
+        return {
+            users: [{
+                username: 'Max'
+            }, {
+                username: 'Chris'
+            }, {
+                username: 'Anna'
+            }]
+        };
+    },
+    template: '<div><div class="user" v-for="user in users"><p>Username: {{ user.username }}</p></div></div>'  
+    // You can use template literals in ES6 to support multi-line strings (the backticks).
+    // You can only have one root element in a template. If you have multiple or multiple 
+    // as a result of a for loop, like here, wrap in a div).
+});
+
 new Vue({
-    el: '#app6',  
+    el: '#app6',  // we could use the template property here instead of this. This essentially fetches the template from the dom, based on where the id is used
     data: {      
         title: 'Hello world!',
-        username: 'Max'
+    },
+    components: {
+        'app-user-local': {
+            data: function() {
+                return {
+                    users: [{
+                        username: 'Max'
+                    }, {
+                        username: 'Chris'
+                    }, {
+                        username: 'Anna'
+                    }]
+                };
+            },
+            template: '<div><div class="user" v-for="user in users"><p>Username: {{ user.username }}</p></div></div>'  
+        }
     }
 });
